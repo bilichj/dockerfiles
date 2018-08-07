@@ -1,8 +1,12 @@
 FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
-MAINTAINER "Durgesh Mankekar"
+MAINTAINER "Jordan Bilich"
+
+RUN add-apt-repository ppa:deadsnakes/ppa &&
+    apt-get update &&
+    apt-get install -y python3.6
 
 RUN apt-get update && apt-get install -y wget ca-certificates \
-    git curl vim python3-dev python3-pip \
+    git curl vim python3-pip \
     libfreetype6-dev libpng12-dev libhdf5-dev
 
 RUN pip3 install --upgrade pip
